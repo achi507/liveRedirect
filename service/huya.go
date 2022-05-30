@@ -122,11 +122,16 @@ func GetHuyaStreamUrls(uurl string) (us []string, err error) {
 			url := fmt.Sprintf("%s?wsSecret=%s&wsTime=%s&uuid=%s&uid=%s&seqid=%s&ratio=%s&txyp=%s&fs=%s&ctype=%s&ver=1&t=%s",
 				liveUrlInfo["hls_url"], hash1, wsTime, liveUrlInfo["uuid"], "1463993859134", seqid, ratio, liveUrlInfo["txyp"],
 				liveUrlInfo["fs"], liveUrlInfo["ctype"], liveUrlInfo["t"])
-
+			if !strings.HasPrefix(url, "http") {
+				continue
+			}
 			ss = append(ss, url)
 		} else {
 			url := fmt.Sprintf("%s?wsSecret=%s&wsTime=%s&seqid=%s&ctype=%s&ver=1&txyp=%s&fs=%s&ratio=%s&u=%s&t=%s&sv=2107230339",
 				liveUrlInfo["hls_url"], hash1, wsTime, seqid, liveUrlInfo["ctype"], liveUrlInfo["txyp"], liveUrlInfo["fs"], ratio, "1463993859134", liveUrlInfo["t"])
+			if !strings.HasPrefix(url, "http") {
+				continue
+			}
 			ss = append(ss, url)
 
 		}
