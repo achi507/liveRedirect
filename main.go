@@ -16,6 +16,7 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 	handleService(r, serviceMap)
+
 	r.Run(":5000")
 }
 
@@ -32,7 +33,7 @@ func handleService(r *gin.Engine, serviceMap map[string]service.LiveService) gin
 		url, err := serviceMap[key].GetPlayUrl(roomId)
 		if err != nil {
 			fmt.Println(err.Error())
-			c.String(200, err.Error())
+			c.String(500, err.Error())
 			return
 		}
 
