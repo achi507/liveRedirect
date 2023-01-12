@@ -99,11 +99,6 @@ saveplaypos=0
 ```
 
 
-### 二次开发
 
-参考[real_url](https://github.com/wbt5/real-url) 项目增加其他直播的解析就可以了。
-
-
-## 代码逻辑
-基本所有的解析逻辑都是照着下面的代码抄的
+## 感谢
 - [real_url](https://github.com/wbt5/real-url)
