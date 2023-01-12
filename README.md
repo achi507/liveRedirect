@@ -26,6 +26,10 @@ pkger
 5、`goreleaser --snapshot --skip-publish --rm-dist build `(如果是交叉编译，需要设置编译平台，比如linux :SET GOOS=linux、 SET GOARCH=amd64)
 
 6、执行lr (默认监听了5000端口)
+```
+1、chomod 755 lr
+2、./lr 或者 ./lr -p 6000
+```
 
 ## 本地docker编译使用
 ```shell script

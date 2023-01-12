@@ -1,13 +1,28 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"liveRedirect/service"
 	"net/http"
+	"strconv"
+)
+
+// 实际中应该用更好的变量名
+var (
+	port int
+	help bool
 )
 
 func main() {
+	flag.BoolVar(&help, "h", false, "help info")
+	flag.IntVar(&port, "p", 5000, "listen port")
+	flag.Parse()
+	if help {
+		flag.Usage()
+		return
+	}
 
 	//初始化服务列表
 	serviceMap := service.GetServiceMap()
@@ -17,7 +32,8 @@ func main() {
 	r := gin.Default()
 	handleService(r, serviceMap)
 
-	r.Run(":5000")
+	fmt.Println("服务启动监听:", port)
+	r.Run(":" + strconv.Itoa(port))
 }
 
 func handleService(r *gin.Engine, serviceMap map[string]service.LiveService) gin.IRoutes {
