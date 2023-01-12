@@ -1,7 +1,8 @@
 # liveRedirect
 用于提供http重定向访问yy/huya直播间M3U8,FLV直播流的作用，让它可以在potplayerer之类的播放器中直接播放，不需要在网页中忍受各种弹窗浮层。
 
-http://项目ip:端口/platformName/房间id 的形式在potplayerer打开
+http://项目ip:端口/platformName/房间id 的形式在potplayerer打开（也就是传说中的直播代理）
+
 ## 直接使用
 1、[release](https://github.com/linsongze/liveRedirect/releases) 下载
 2、根据对应的平台的运行（如果是linux，先chmod +x liveRedirect）
@@ -29,10 +30,13 @@ pkger
 ```
 1、chomod 755 lr
 2、./lr 或者 ./lr -p 6000
+*** 如果想后台运行就  运行  nohup ./lr &
 ```
 
 ## 本地docker编译使用
 ```shell script
+git clone https://github.com/linsongze/liveRedirect.git
+cd liveRedirect
 docker build -t linsongze/liveredirect:1.0 .
 docker run -d -p5000:5000 linsongze/liveredirect:1.0
 ```
@@ -42,6 +46,7 @@ docker run -d -p5000:5000 linsongze/liveredirect:1.0
 | :-----| ----: | 
 | huya | 虎牙 | 
 | yy | yy | 
+| douyin | 抖音 |
 | huajiao | 花椒 | 
 | 2cp | 棉花糖直播 | 
 | zhanqi | 战旗 | 
@@ -72,9 +77,6 @@ docker run -d -p5000:5000 linsongze/liveredirect:1.0
 | immomo | 陌陌直播 |  
 | inke | 映客直播 |  
 
-
-### demo
-https://liveurl.herokuapp.com/huya/616702
 
 ### 在potplayer中用播放列表的形式打开
 
